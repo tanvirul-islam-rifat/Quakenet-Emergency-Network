@@ -204,4 +204,4 @@ Optional: `pip install -r requirements.txt && python -m tools.make_figures` rege
 ## Author
 **Md. Tanvirul Islam Rifat** — designed, configured, tested and documented this network.
 - **GitHub:** [@tanvirul-islam-rifat](https://github.com/tanvirul-islam-rifat)
-- **LinkedIn:** [Your LinkedIn Profile](https://linkedin.com/in/YourLinkedInProfile)
+- **LinkedIn:** [Tanvirul Islam Rifat](https://www.linkedin.com/in/tanvirul-islam-rifat)
