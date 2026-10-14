@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+venv/
+.venv/
+
+# Documentation build intermediates
+docs/_report_expanded.md
+docs/_report.html
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Packet Tracer auto-saves
+*.pkt.bak
+*~

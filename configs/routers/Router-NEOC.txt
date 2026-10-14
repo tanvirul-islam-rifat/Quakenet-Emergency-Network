@@ -1,0 +1,89 @@
+enable
+configure terminal
+hostname Router-NEOC
+no ip domain-lookup
+banner motd #QuakeNet - National Emergency Operation Center - Authorized Access Only#
+!
+interface GigabitEthernet0/0/0
+ description NEOC LAN
+ ip address 18.50.0.1 255.255.224.0
+ no shutdown
+ exit
+interface GigabitEthernet0/0/1
+ description Central switch segment
+ ip address 18.50.45.193 255.255.255.248
+ no shutdown
+ exit
+interface GigabitEthernet0/0/2
+ description P2P fibre link to MEC
+ ip address 18.50.45.201 255.255.255.252
+ no shutdown
+ exit
+interface Serial0/1/0
+ description Warning loop to SMS
+ ip address 18.50.45.205 255.255.255.252
+ clock rate 64000
+ no shutdown
+ exit
+interface Serial0/1/1
+ description Warning loop to FRH
+ ip address 18.50.45.214 255.255.255.252
+ clock rate 64000
+ no shutdown
+ exit
+!
+! ---------- DHCP server for NEOC, SMS and FRH ----------
+ip dhcp excluded-address 18.50.0.1 18.50.0.9
+ip dhcp excluded-address 18.50.44.1 18.50.44.9
+ip dhcp excluded-address 18.50.42.1 18.50.42.9
+ip dhcp pool NEOC-POOL
+ network 18.50.0.0 255.255.224.0
+ default-router 18.50.0.1
+ dns-server 18.50.0.2
+ domain-name neoc.gov
+ exit
+ip dhcp pool SMS-POOL
+ network 18.50.44.0 255.255.255.0
+ default-router 18.50.44.1
+ dns-server 18.50.0.2
+ domain-name sms.gov
+ exit
+ip dhcp pool FRH-POOL
+ network 18.50.42.0 255.255.254.0
+ default-router 18.50.42.1
+ dns-server 18.50.0.2
+ domain-name frh.gov
+ exit
+!
+! ---------- Static routes toward the static-only side ----------
+ip route 18.50.40.0 255.255.254.0 18.50.45.202
+ip route 18.50.32.0 255.255.248.0 18.50.45.202
+ip route 18.50.45.216 255.255.255.252 18.50.45.202
+ip route 18.50.45.0 255.255.255.128 18.50.45.196
+ip route 18.50.45.128 255.255.255.192 18.50.45.196
+ip route 18.50.45.220 255.255.255.252 18.50.45.196
+! Floating backups so the return path also survives a fibre failure
+ip route 18.50.40.0 255.255.254.0 18.50.45.196 48
+ip route 18.50.32.0 255.255.248.0 18.50.45.196 48
+ip route 18.50.45.216 255.255.255.252 18.50.45.196 48
+!
+! ---------- Dynamic routing on the warning loop ----------
+router rip
+ version 2
+ no auto-summary
+ network 18.0.0.0
+ passive-interface GigabitEthernet0/0/0
+ passive-interface GigabitEthernet0/0/1
+ passive-interface GigabitEthernet0/0/2
+ redistribute static metric 5
+ exit
+!
+line console 0
+ password cisco
+ login
+ logging synchronous
+ exit
+enable secret class
+service password-encryption
+end
+copy running-config startup-config

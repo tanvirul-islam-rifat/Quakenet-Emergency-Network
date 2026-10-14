@@ -1,0 +1,28 @@
+device,role,ip_address,subnet_mask,default_gateway,dns_server
+DNS-NEOC,Central DNS server,18.50.0.2,255.255.224.0,18.50.0.1,18.50.0.2
+WEB-NEOC,Web server (www.neoc.alert.gov),18.50.0.3,255.255.224.0,18.50.0.1,18.50.0.2
+MAIL-NEOC,Email server (neoc.gov),18.50.0.4,255.255.224.0,18.50.0.1,18.50.0.2
+PRN-NEOC,Printer,18.50.0.5,255.255.224.0,18.50.0.1,18.50.0.2
+Switch-NEOC,Switch management (VLAN 1),18.50.0.6,255.255.224.0,18.50.0.1,
+MAIL-USR,Email server (usr.gov),18.50.32.2,255.255.248.0,18.50.32.1,18.50.0.2
+PRN-USR,Printer,18.50.32.3,255.255.248.0,18.50.32.1,18.50.0.2
+Switch-USR,Switch management (VLAN 1),18.50.32.4,255.255.248.0,18.50.32.1,
+WEB-MEC,Web server (www.mec.alert.gov),18.50.40.2,255.255.254.0,18.50.40.1,18.50.0.2
+MAIL-MEC,Email server (mec.gov),18.50.40.3,255.255.254.0,18.50.40.1,18.50.0.2
+DHCP-MEC,DHCP server,18.50.40.4,255.255.254.0,18.50.40.1,18.50.0.2
+PRN-MEC,Printer,18.50.40.5,255.255.254.0,18.50.40.1,18.50.0.2
+Switch-MEC,Switch management (VLAN 1),18.50.40.6,255.255.254.0,18.50.40.1,
+MAIL-FRH,Email server (frh.gov),18.50.42.2,255.255.254.0,18.50.42.1,18.50.0.2
+PRN-FRH,Printer,18.50.42.3,255.255.254.0,18.50.42.1,18.50.0.2
+Switch-FRH,Switch management (VLAN 1),18.50.42.4,255.255.254.0,18.50.42.1,
+MAIL-SMS,Email server (sms.gov),18.50.44.2,255.255.255.0,18.50.44.1,18.50.0.2
+PRN-SMS,Printer,18.50.44.3,255.255.255.0,18.50.44.1,18.50.0.2
+Switch-SMS,Switch management (VLAN 1),18.50.44.4,255.255.255.0,18.50.44.1,
+MAIL-CRC,Email server (crc.gov),18.50.45.2,255.255.255.128,18.50.45.1,18.50.0.2
+DHCP-CRC,DHCP server,18.50.45.3,255.255.255.128,18.50.45.1,18.50.0.2
+PRN-CRC,Printer,18.50.45.4,255.255.255.128,18.50.45.1,18.50.0.2
+Switch-CRC,Switch management (VLAN 1),18.50.45.5,255.255.255.128,18.50.45.1,
+MAIL-MOP,Email server (mop.gov),18.50.45.130,255.255.255.192,18.50.45.129,18.50.0.2
+PRN-MOP,Printer,18.50.45.131,255.255.255.192,18.50.45.129,18.50.0.2
+Switch-MOP,Switch management (VLAN 1),18.50.45.132,255.255.255.192,18.50.45.129,
+Central-Switch,Switch management (VLAN 1),18.50.45.197,255.255.255.248,18.50.45.193,

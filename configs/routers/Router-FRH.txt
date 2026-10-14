@@ -1,0 +1,45 @@
+enable
+configure terminal
+hostname Router-FRH
+no ip domain-lookup
+banner motd #QuakeNet - Fire and Rescue Headquarters#
+!
+interface GigabitEthernet0/0/0
+ description FRH LAN
+ ip address 18.50.42.1 255.255.254.0
+ ip helper-address 18.50.0.1
+ no shutdown
+ exit
+interface GigabitEthernet0/0/1
+ description Central switch segment
+ ip address 18.50.45.194 255.255.255.248
+ no shutdown
+ exit
+interface Serial0/1/0
+ description Warning loop to SMS
+ ip address 18.50.45.210 255.255.255.252
+ no shutdown
+ exit
+interface Serial0/1/1
+ description Warning loop to NEOC
+ ip address 18.50.45.213 255.255.255.252
+ no shutdown
+ exit
+!
+router rip
+ version 2
+ no auto-summary
+ network 18.0.0.0
+ passive-interface GigabitEthernet0/0/0
+ passive-interface GigabitEthernet0/0/1
+ exit
+!
+line console 0
+ password cisco
+ login
+ logging synchronous
+ exit
+enable secret class
+service password-encryption
+end
+copy running-config startup-config

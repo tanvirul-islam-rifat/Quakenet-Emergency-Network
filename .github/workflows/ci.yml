@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify-design:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests (VLSM, config parser, routing model, verifier incl. negative tests)
+        run: python -m unittest discover -s tests -t . -v
+      - name: Verify addressing, configs, DHCP, routing and failover
+        run: python -m tools.validate_design

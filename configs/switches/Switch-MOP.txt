@@ -1,0 +1,18 @@
+enable
+configure terminal
+hostname Switch-MOP
+no ip domain-lookup
+interface vlan 1
+ ip address 18.50.45.132 255.255.255.192
+ no shutdown
+ exit
+ip default-gateway 18.50.45.129
+line console 0
+ password cisco
+ login
+ logging synchronous
+ exit
+enable secret class
+service password-encryption
+end
+copy running-config startup-config

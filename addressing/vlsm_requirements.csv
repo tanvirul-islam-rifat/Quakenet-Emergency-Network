@@ -1,0 +1,15 @@
+network,required_hosts
+NEOC LAN,5000
+USR LAN,1040
+MEC LAN,500
+FRH LAN,320
+SMS LAN,180
+CRC LAN,100
+MOP LAN,50
+Central segment (NEOC-FRH-MEC-CRC),4
+NEOC-MEC fibre link,2
+NEOC-SMS link,2
+SMS-FRH link,2
+FRH-NEOC link,2
+MEC-USR link,2
+CRC-MOP link,2

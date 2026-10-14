@@ -1,0 +1,18 @@
+enable
+configure terminal
+hostname Central-Switch
+no ip domain-lookup
+interface vlan 1
+ ip address 18.50.45.197 255.255.255.248
+ no shutdown
+ exit
+ip default-gateway 18.50.45.193
+line console 0
+ password cisco
+ login
+ logging synchronous
+ exit
+enable secret class
+service password-encryption
+end
+copy running-config startup-config

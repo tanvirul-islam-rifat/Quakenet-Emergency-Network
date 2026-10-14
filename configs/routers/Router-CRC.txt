@@ -1,0 +1,60 @@
+enable
+configure terminal
+hostname Router-CRC
+no ip domain-lookup
+banner motd #QuakeNet - Communication Relay Center#
+!
+interface GigabitEthernet0/0/0
+ description CRC LAN
+ ip address 18.50.45.1 255.255.255.128
+ no shutdown
+ exit
+interface GigabitEthernet0/0/1
+ description Central switch segment
+ ip address 18.50.45.196 255.255.255.248
+ no shutdown
+ exit
+interface Serial0/1/0
+ description Link to MOP
+ ip address 18.50.45.221 255.255.255.252
+ clock rate 64000
+ no shutdown
+ exit
+!
+! ---------- IP SLA probe + track object (watches NEOC on the central segment) ----------
+ip sla 1
+ icmp-echo 18.50.45.193 source-interface GigabitEthernet0/0/1
+ frequency 5
+ exit
+ip sla schedule 1 life forever start-time now
+track 1 ip sla 1 reachability
+!
+! ---------- PRIMARY routes (the two NEOC-bound routes are bound to track 1) ----------
+ip route 18.50.0.0 255.255.224.0 18.50.45.193 track 1
+ip route 18.50.44.0 255.255.255.0 18.50.45.193 track 1
+ip route 18.50.45.204 255.255.255.252 18.50.45.193
+ip route 18.50.45.212 255.255.255.252 18.50.45.193
+ip route 18.50.45.200 255.255.255.252 18.50.45.193
+ip route 18.50.42.0 255.255.254.0 18.50.45.194
+ip route 18.50.45.208 255.255.255.252 18.50.45.194
+ip route 18.50.40.0 255.255.254.0 18.50.45.195
+ip route 18.50.32.0 255.255.248.0 18.50.45.195
+ip route 18.50.45.216 255.255.255.252 18.50.45.195
+! MOP LAN behind the CRC-MOP link (present in the Packet Tracer routing table, missing from the printed report)
+ip route 18.50.45.128 255.255.255.192 18.50.45.222
+!
+! ---------- FLOATING STATIC toward NEOC via FRH (AD 48) ----------
+ip route 18.50.0.0 255.255.224.0 18.50.45.194 48
+ip route 18.50.44.0 255.255.255.0 18.50.45.194 48
+ip route 18.50.45.204 255.255.255.252 18.50.45.194 48
+ip route 18.50.45.200 255.255.255.252 18.50.45.194 48
+!
+line console 0
+ password cisco
+ login
+ logging synchronous
+ exit
+enable secret class
+service password-encryption
+end
+copy running-config startup-config

@@ -1,0 +1,3 @@
+# The design verifier, VLSM calculator and tests use only the Python standard library.
+# matplotlib is needed only to regenerate the documentation figures (python -m tools.make_figures).
+matplotlib>=3.7

@@ -1,0 +1,40 @@
+enable
+configure terminal
+hostname Router-SMS
+no ip domain-lookup
+banner motd #QuakeNet - Seismic Monitoring Station#
+!
+interface GigabitEthernet0/0/0
+ description SMS LAN
+ ip address 18.50.44.1 255.255.255.0
+ ip helper-address 18.50.0.1
+ no shutdown
+ exit
+interface Serial0/1/0
+ description Warning loop to NEOC
+ ip address 18.50.45.206 255.255.255.252
+ no shutdown
+ exit
+interface Serial0/1/1
+ description Warning loop to FRH
+ ip address 18.50.45.209 255.255.255.252
+ clock rate 64000
+ no shutdown
+ exit
+!
+router rip
+ version 2
+ no auto-summary
+ network 18.0.0.0
+ passive-interface GigabitEthernet0/0/0
+ exit
+!
+line console 0
+ password cisco
+ login
+ logging synchronous
+ exit
+enable secret class
+service password-encryption
+end
+copy running-config startup-config

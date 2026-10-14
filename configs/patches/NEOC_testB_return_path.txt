@@ -1,0 +1,11 @@
+! OPTIONAL PATCH - not applied in QuakeNet.pkt (see README, "Verifier findings").
+! Paste on Router-NEOC to give it return routes to the CRC and MOP LANs while its
+! central-switch port (Gi0/0/1) is down. The backup goes over the NEOC-MEC fibre link;
+! Router-MEC already has static routes to these networks via CRC (18.50.45.196).
+! Floating (AD 48): inactive in normal operation and in Test A.
+configure terminal
+ip route 18.50.45.0 255.255.255.128 18.50.45.202 48
+ip route 18.50.45.128 255.255.255.192 18.50.45.202 48
+ip route 18.50.45.220 255.255.255.252 18.50.45.202 48
+end
+copy running-config startup-config

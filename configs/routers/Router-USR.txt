@@ -1,0 +1,41 @@
+enable
+configure terminal
+hostname Router-USR
+no ip domain-lookup
+banner motd #QuakeNet - Urban Search and Rescue Camp#
+!
+interface GigabitEthernet0/0/0
+ description USR LAN
+ ip address 18.50.32.1 255.255.248.0
+ ip helper-address 18.50.40.4
+ no shutdown
+ exit
+interface Serial0/1/0
+ description Link to MEC
+ ip address 18.50.45.218 255.255.255.252
+ no shutdown
+ exit
+!
+! ---------- Exit-interface static routes (no next-hop IP, no default route) ----------
+ip route 18.50.0.0 255.255.224.0 Serial0/1/0
+ip route 18.50.40.0 255.255.254.0 Serial0/1/0
+ip route 18.50.42.0 255.255.254.0 Serial0/1/0
+ip route 18.50.44.0 255.255.255.0 Serial0/1/0
+ip route 18.50.45.0 255.255.255.128 Serial0/1/0
+ip route 18.50.45.128 255.255.255.192 Serial0/1/0
+ip route 18.50.45.192 255.255.255.248 Serial0/1/0
+ip route 18.50.45.200 255.255.255.252 Serial0/1/0
+ip route 18.50.45.204 255.255.255.252 Serial0/1/0
+ip route 18.50.45.208 255.255.255.252 Serial0/1/0
+ip route 18.50.45.212 255.255.255.252 Serial0/1/0
+ip route 18.50.45.220 255.255.255.252 Serial0/1/0
+!
+line console 0
+ password cisco
+ login
+ logging synchronous
+ exit
+enable secret class
+service password-encryption
+end
+copy running-config startup-config

@@ -1,0 +1,13 @@
+name,type,address,purpose
+www.neoc.alert.gov,A,18.50.0.3,NEOC web server
+www.mec.alert.gov,A,18.50.40.2,MEC web server
+mail.neoc.gov,A,18.50.0.4,NEOC mail host
+mail.mec.gov,A,18.50.40.3,MEC mail host
+mail.sms.gov,A,18.50.44.2,SMS mail host
+mail.frh.gov,A,18.50.42.2,FRH mail host
+mail.usr.gov,A,18.50.32.2,USR mail host
+mail.crc.gov,A,18.50.45.2,CRC mail host
+mail.mop.gov,A,18.50.45.130,MOP mail host
+neoc.gov,A,18.50.0.4,NEOC mail domain (required for cross-domain relay)
+mec.gov,A,18.50.40.3,MEC mail domain (required for cross-domain relay)
+dns.neoc.gov,A,18.50.0.2,DNS server host name

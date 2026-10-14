@@ -1,0 +1,18 @@
+from_device,from_interface,to_device,to_interface,cable
+Router-NEOC,GigabitEthernet0/0/0,Switch-NEOC,FastEthernet0/1,Copper straight-through
+Router-NEOC,GigabitEthernet0/0/1,Central-Switch,FastEthernet0/1,Copper straight-through
+Router-FRH,GigabitEthernet0/0/1,Central-Switch,FastEthernet0/2,Copper straight-through
+Router-MEC,GigabitEthernet0/0/1,Central-Switch,FastEthernet0/3,Copper straight-through
+Router-CRC,GigabitEthernet0/0/1,Central-Switch,FastEthernet0/4,Copper straight-through
+Router-NEOC,GigabitEthernet0/0/2,Router-MEC,GigabitEthernet0/0/2,Point-to-point fibre link (modelled as Gigabit)
+Router-NEOC,Serial0/1/0,Router-SMS,Serial0/1/0,Serial 64000 bps (NEOC = DCE)
+Router-SMS,Serial0/1/1,Router-FRH,Serial0/1/0,Serial 64000 bps (SMS = DCE)
+Router-NEOC,Serial0/1/1,Router-FRH,Serial0/1/1,Serial 64000 bps (NEOC = DCE)
+Router-MEC,Serial0/1/0,Router-USR,Serial0/1/0,Serial 64000 bps (MEC = DCE)
+Router-CRC,Serial0/1/0,Router-MOP,Serial0/1/0,Serial 64000 bps (CRC = DCE)
+Router-SMS,GigabitEthernet0/0/0,Switch-SMS,FastEthernet0/1,Copper straight-through
+Router-FRH,GigabitEthernet0/0/0,Switch-FRH,FastEthernet0/1,Copper straight-through
+Router-MEC,GigabitEthernet0/0/0,Switch-MEC,FastEthernet0/1,Copper straight-through
+Router-CRC,GigabitEthernet0/0/0,Switch-CRC,FastEthernet0/1,Copper straight-through
+Router-USR,GigabitEthernet0/0/0,Switch-USR,FastEthernet0/1,Copper straight-through
+Router-MOP,GigabitEthernet0/0/0,Switch-MOP,FastEthernet0/1,Copper straight-through

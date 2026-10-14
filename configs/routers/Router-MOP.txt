@@ -1,0 +1,40 @@
+enable
+configure terminal
+hostname Router-MOP
+no ip domain-lookup
+banner motd #QuakeNet - Mountain Observation Post#
+!
+interface GigabitEthernet0/0/0
+ description MOP LAN
+ ip address 18.50.45.129 255.255.255.192
+ ip helper-address 18.50.45.3
+ no shutdown
+ exit
+interface Serial0/1/0
+ description Link to CRC
+ ip address 18.50.45.222 255.255.255.252
+ no shutdown
+ exit
+!
+ip route 18.50.0.0 255.255.224.0 18.50.45.221
+ip route 18.50.32.0 255.255.248.0 18.50.45.221
+ip route 18.50.40.0 255.255.254.0 18.50.45.221
+ip route 18.50.42.0 255.255.254.0 18.50.45.221
+ip route 18.50.44.0 255.255.255.0 18.50.45.221
+ip route 18.50.45.0 255.255.255.128 18.50.45.221
+ip route 18.50.45.192 255.255.255.248 18.50.45.221
+ip route 18.50.45.200 255.255.255.252 18.50.45.221
+ip route 18.50.45.204 255.255.255.252 18.50.45.221
+ip route 18.50.45.208 255.255.255.252 18.50.45.221
+ip route 18.50.45.212 255.255.255.252 18.50.45.221
+ip route 18.50.45.216 255.255.255.252 18.50.45.221
+!
+line console 0
+ password cisco
+ login
+ logging synchronous
+ exit
+enable secret class
+service password-encryption
+end
+copy running-config startup-config

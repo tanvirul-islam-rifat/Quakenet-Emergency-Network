@@ -1,0 +1,18 @@
+enable
+configure terminal
+hostname Switch-SMS
+no ip domain-lookup
+interface vlan 1
+ ip address 18.50.44.4 255.255.255.0
+ no shutdown
+ exit
+ip default-gateway 18.50.44.1
+line console 0
+ password cisco
+ login
+ logging synchronous
+ exit
+enable secret class
+service password-encryption
+end
+copy running-config startup-config

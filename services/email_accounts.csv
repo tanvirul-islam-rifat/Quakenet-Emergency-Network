@@ -1,0 +1,10 @@
+mail_server,server_ip,mail_domain,user,password,client_pc,display_name,email_address
+MAIL-NEOC,18.50.0.4,neoc.gov,neoc.admin,cisco123,PC-NEOC-1,NEOC Admin,neoc.admin@neoc.gov
+MAIL-NEOC,18.50.0.4,neoc.gov,neoc.ops,cisco123,PC-NEOC-2,NEOC Ops,neoc.ops@neoc.gov
+MAIL-MEC,18.50.40.3,mec.gov,mec.doctor,cisco123,PC-MEC-1,MEC Doctor,mec.doctor@mec.gov
+MAIL-MEC,18.50.40.3,mec.gov,mec.nurse,cisco123,PC-MEC-2,MEC Nurse,mec.nurse@mec.gov
+MAIL-SMS,18.50.44.2,sms.gov,sms.user1,cisco123,,,
+MAIL-FRH,18.50.42.2,frh.gov,frh.user1,cisco123,,,
+MAIL-USR,18.50.32.2,usr.gov,usr.user1,cisco123,,,
+MAIL-CRC,18.50.45.2,crc.gov,crc.user1,cisco123,,,
+MAIL-MOP,18.50.45.130,mop.gov,mop.user1,cisco123,,,

@@ -1,0 +1,24 @@
+router,interface,ip_address,subnet_mask,network
+Router-NEOC,GigabitEthernet0/0/0,18.50.0.1,255.255.224.0,NEOC LAN
+Router-NEOC,GigabitEthernet0/0/1,18.50.45.193,255.255.255.248,Central segment (NEOC-FRH-MEC-CRC)
+Router-NEOC,GigabitEthernet0/0/2,18.50.45.201,255.255.255.252,NEOC-MEC fibre link
+Router-NEOC,Serial0/1/0,18.50.45.205,255.255.255.252,NEOC-SMS link
+Router-NEOC,Serial0/1/1,18.50.45.214,255.255.255.252,FRH-NEOC link
+Router-SMS,GigabitEthernet0/0/0,18.50.44.1,255.255.255.0,SMS LAN
+Router-SMS,Serial0/1/0,18.50.45.206,255.255.255.252,NEOC-SMS link
+Router-SMS,Serial0/1/1,18.50.45.209,255.255.255.252,SMS-FRH link
+Router-FRH,GigabitEthernet0/0/0,18.50.42.1,255.255.254.0,FRH LAN
+Router-FRH,GigabitEthernet0/0/1,18.50.45.194,255.255.255.248,Central segment (NEOC-FRH-MEC-CRC)
+Router-FRH,Serial0/1/0,18.50.45.210,255.255.255.252,SMS-FRH link
+Router-FRH,Serial0/1/1,18.50.45.213,255.255.255.252,FRH-NEOC link
+Router-MEC,GigabitEthernet0/0/0,18.50.40.1,255.255.254.0,MEC LAN
+Router-MEC,GigabitEthernet0/0/1,18.50.45.195,255.255.255.248,Central segment (NEOC-FRH-MEC-CRC)
+Router-MEC,GigabitEthernet0/0/2,18.50.45.202,255.255.255.252,NEOC-MEC fibre link
+Router-MEC,Serial0/1/0,18.50.45.217,255.255.255.252,MEC-USR link
+Router-CRC,GigabitEthernet0/0/0,18.50.45.1,255.255.255.128,CRC LAN
+Router-CRC,GigabitEthernet0/0/1,18.50.45.196,255.255.255.248,Central segment (NEOC-FRH-MEC-CRC)
+Router-CRC,Serial0/1/0,18.50.45.221,255.255.255.252,CRC-MOP link
+Router-USR,GigabitEthernet0/0/0,18.50.32.1,255.255.248.0,USR LAN
+Router-USR,Serial0/1/0,18.50.45.218,255.255.255.252,MEC-USR link
+Router-MOP,GigabitEthernet0/0/0,18.50.45.129,255.255.255.192,MOP LAN
+Router-MOP,Serial0/1/0,18.50.45.222,255.255.255.252,CRC-MOP link

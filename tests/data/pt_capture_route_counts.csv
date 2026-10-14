@@ -1,0 +1,8 @@
+router,subnets_in_show_ip_route,source
+Router-NEOC,19,docs/images/screenshots/router_neoc_verification.png
+Router-FRH,18,docs/images/screenshots/router_frh_verification.png
+Router-SMS,17,docs/images/screenshots/router_sms_verification.png
+Router-MEC,18,docs/images/screenshots/router_mec_verification.png
+Router-CRC,17,docs/images/screenshots/router_crc_verification.png
+Router-USR,16,docs/images/screenshots/router_usr_verification.png
+Router-MOP,16,docs/images/screenshots/router_mop_verification.png
